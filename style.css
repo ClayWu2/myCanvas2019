@@ -13,6 +13,9 @@ ol,ul{list-style: none;}
 #xxx{
   background:white;
   display:block;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 body{
   overflow: hidden;
