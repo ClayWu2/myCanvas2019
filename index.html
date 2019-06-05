@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <link rel="stylesheet" href="style.css">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>myCanvas</title>
 </head>
+
 <body>
     <canvas id="xxx" width=300 height=300></canvas>
     <div id="actions" class="actions">
-      <button id="eraser">橡皮</button>
-      <button id="brush">画笔</button>
+        <svg id ="pen" class="icon active">
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg id ="eraser" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-eraser1"></use>
+        </svg>
     </div>
+    <ol class="colors">
+        <li id="black" class="black active"></li>
+        <li id="red" class="red"></li>
+        <li id="purple" class="purple"></li>
+        <li id="blue" class="blue"></li>            
+        <li id="green" class="green"></li>
+    </ol>
 </body>
-
 <script src="./main.js"></script>
+<script src="//at.alicdn.com/t/font_1228455_wgx01myrkfd.js"></script>
+
 </html>

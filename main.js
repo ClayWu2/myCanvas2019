@@ -4,16 +4,68 @@ autoCanvasSize(yyy)
 listenToUser(yyy)
 
 
+
+black.onclick=function(){
+    context.fillStyle = 'black'
+    context.strokeStyle = 'black'
+    black.classList.add('active')
+    red.classList.remove('active')
+    purple.classList.remove('active')
+    blue.classList.remove('active')
+    green.classList.remove('active')
+}
+
+red.onclick=function(){
+    context.fillStyle = 'red'
+    context.strokeStyle = 'red'
+    red.classList.add('active')
+    black.classList.remove('active')
+    purple.classList.remove('active')
+    blue.classList.remove('active')
+    green.classList.remove('active')
+}
+
+purple.onclick=function(){
+    context.fillStyle = 'purple'
+    context.strokeStyle = 'purple'
+    purple.classList.add('active')
+    black.classList.remove('active')
+    red.classList.remove('active')
+    blue.classList.remove('active')
+    green.classList.remove('active')
+}
+
+blue.onclick=function(){
+    context.fillStyle = 'blue'
+    context.strokeStyle = 'blue'
+    blue.classList.add('active')
+    black.classList.remove('active')
+    red.classList.remove('active')
+    purple.classList.remove('active')
+    green.classList.remove('active')
+}
+ 
+green.onclick=function(){
+    context.fillStyle = 'green'
+    context.strokeStyle = 'green'
+    green.classList.add('active')
+    black.classList.remove('active')
+    red.classList.remove('active')
+    purple.classList.remove('active')
+    blue.classList.remove('active')
+}
+
+
 var eraserEnable = false
-//点击橡皮
 eraser.onclick = function () {
     eraserEnable = true
-    actions.className = "actions x"
+    eraser.classList.add('active')
+    pen.classList.remove('active')
 }
-//点击画笔
-brush.onclick = function () {
+pen.onclick = function () {
     eraserEnable = false
-    actions.className = "actions "
+    pen.classList.add('active')
+    eraser.classList.remove('active')
 }
 
 
@@ -67,7 +119,7 @@ function listenToUser(canvas) {
         canvas.ontouchend = function (aaa) {
             using = false
         }
-        
+
         //电脑
     } else {
         //按下鼠标
@@ -131,7 +183,7 @@ function autoCanvasSize(canvas) {
 function drawCircle(x, y, radius) {
     context.beginPath()
     context.arc(x, y, radius, 0, Math.PI * 2)
-    context.fillStyle = 'black'
+    
     context.fill()
 }
 //画线
@@ -140,7 +192,6 @@ function drawLine(x1, y1, x2, y2) {
     context.moveTo(x1, y1)
     context.lineWidth = 5
     context.lineTo(x2, y2);
-    context.strokeStyle = 'black'
     context.stroke();
     context.closePath()
 }
