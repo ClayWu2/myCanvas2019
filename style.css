@@ -1,4 +1,7 @@
-canvas {display: block;}
+canvas {
+    background-color: black;
+    display: block;
+}
 ol,ul{list-style: none;}
 *{margin:0;padding:0;}
 .icon {
@@ -13,6 +16,7 @@ ol,ul{list-style: none;}
 }
 body{
   overflow: hidden;
+  /*禁用滚动*/
 }
 .actions{
   position:fixed;
@@ -25,6 +29,12 @@ body{
     width: 1.5em;
     transition: all 0.3s;
     margin: 0 5px;
+}
+.actions >.clear{
+    position:fixed;
+    top: 20px;
+    right:20px;
+   
 }
 .actions svg.active{
     fill:red;
@@ -62,4 +72,28 @@ body{
 .colors>li.active{
     box-shadow: 0 0 3px rgba(0, 0, 0, 1); 
     transform: scale(1.2);
+}
+.size{
+    position: fixed;
+    top: 217px;
+    left: 27px;
+}
+.size li{
+    margin: 17px 0;
+    
+}
+
+.size li.active{
+    transform: scale(1.2)
+}
+.size > .thin{
+    width: 20px;
+    height: 0px;
+    border-top: 3px black solid;
+    
+}
+.size > .thick{
+    width: 20px;
+    height: 0px;
+    border-top: 6px black solid; 
 }

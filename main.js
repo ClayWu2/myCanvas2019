@@ -2,8 +2,31 @@ var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d')
 autoCanvasSize(yyy)
 listenToUser(yyy)
+var drawlineWidth = 4
 
-
+//点击保存
+download.onclick=function(){
+    var url = yyy.toDataURL("image/png");
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href=url
+    a.download='我的绘画'
+    a.target='_blank'
+    a.click()
+}
+clear.onclick =function(){
+    context.clearRect(0, 0, yyy.width, yyy.height)
+}
+thin.onclick= function(){
+    drawlineWidth=4
+    thin.classList.add('active')
+    thick.classList.remove('active')
+}
+thick.onclick= function(){
+    drawlineWidth=8
+    thick.classList.add('active')
+    thin.classList.remove('active')
+} 
 
 black.onclick=function(){
     context.fillStyle = 'black'
@@ -61,6 +84,12 @@ eraser.onclick = function () {
     eraserEnable = true
     eraser.classList.add('active')
     pen.classList.remove('active')
+    green.classList.remove('active')
+    black.classList.remove('active')
+    red.classList.remove('active')
+    purple.classList.remove('active')
+    blue.classList.remove('active')
+
 }
 pen.onclick = function () {
     eraserEnable = false
@@ -89,7 +118,7 @@ function listenToUser(canvas) {
             var y = aaa.touches[0].clientY
             using = true
             if (eraserEnable) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 10, y - 10, 20, 20)
             } else {
                 lastPoint = {
                     x: x,
@@ -105,7 +134,7 @@ function listenToUser(canvas) {
                 return
             }
             if (eraserEnable) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 10, y - 10, 20, 20)
             } else {
                 newPoint = {
                     x: x,
@@ -128,7 +157,7 @@ function listenToUser(canvas) {
             var y = aaa.clientY
             using = true
             if (eraserEnable) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 10, y - 10, 20, 20)
             } else {
                 lastPoint = {
                     x: x,
@@ -144,7 +173,7 @@ function listenToUser(canvas) {
                 return
             }
             if (eraserEnable) {
-                context.clearRect(x - 5, y - 5, 10, 10)
+                context.clearRect(x - 10, y - 10, 20, 20)
             } else {
                 newPoint = {
                     x: x,
@@ -190,7 +219,7 @@ function drawCircle(x, y, radius) {
 function drawLine(x1, y1, x2, y2) {
     context.beginPath()
     context.moveTo(x1, y1)
-    context.lineWidth = 5
+    context.lineWidth = drawlineWidth
     context.lineTo(x2, y2);
     context.stroke();
     context.closePath()
